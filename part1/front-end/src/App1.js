@@ -23,11 +23,10 @@ function App() {
     createMovie(movie)
       .then(response => {
         console.log(response);
-        setNumberOfMovies(numberOfMovies + 1) 
-        fetchAllMovies(); /* */
+        setNumberOfMovies(numberOfMovies + 1)
       });
 
-   
+    fetchAllMovies(); /* */
   }
 
 
@@ -35,7 +34,7 @@ function App() {
     
     console.log(search_data.search_text);
 
-    searchMovie(movie.director)
+    searchMovie("jok")
       .then(movies => {
         console.log(movies.data);
         setMovies(movies.data);
