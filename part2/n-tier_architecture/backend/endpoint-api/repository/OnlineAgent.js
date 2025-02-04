@@ -45,52 +45,6 @@ async function getOnlineAgentByAgentCode(agentcode) {
     }
 }
 
-
-async function postOnlineAgentStatus(AgentCode, AgentName, IsLogin, AgentStatus) {
-
-    try {
-        console.log("AgentCode: ", AgentCode);
-        console.log("AgentName: ", AgentName);
-        console.log("IsLogin: ", IsLogin);
-        console.log("AgentStatus: ", AgentStatus);
-
-        let pool = await sql.connect(sqlConfig);
-
-        //let result = await pool.request().query(`SELECT * FROM [OnlineAgents] WHERE [agent_code] = '${agentcode}'`); //@agentcode
-       
-        console.log("result: ", result);
-
-        if (!result || result.recordsets[0].length === 0) {
-            console.log("result: ERROR");
-            return ({
-                error: true,
-                statusCode: 404,
-                errMessage: 'Agent not found',
-            });
-
-        } else {
-
-            return ({
-                error: false,
-                statusCode: 200,
-                data: result.recordset[0]
-            });
-
-        }
-
-    }
-    catch (error) {
-        console.log(error);
-        return ({
-             error: true,
-             statusCode: 500,
-             errMessage: 'An internal server error occurred',
-         });
-    }
-}
-
-/*
-
 async function postOnlineAgentStatus(AgentCode, AgentName, IsLogin, AgentStatus) {
 
     console.log("----------------");
@@ -153,7 +107,6 @@ async function postOnlineAgentStatus(AgentCode, AgentName, IsLogin, AgentStatus)
 
 }
 
-*/
 module.exports.OnlineAgentRepo = {
 
     getOnlineAgentByAgentCode: getOnlineAgentByAgentCode,

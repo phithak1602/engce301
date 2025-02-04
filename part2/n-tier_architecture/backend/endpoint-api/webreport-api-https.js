@@ -224,7 +224,7 @@ const init = async () => {
 
 
         const responsedata =
-        await OnlineAgent.OnlineAgentRepo.postOnlineAgentStatus(payload.AgentCode, payload.AgentName. payload.IsLogin, payload.AgentStatus);
+        await OnlineAgent.OnlineAgentRepo.postOnlineAgentStatus(payload.AgentCode, payload.AgentName, payload.IsLogin, payload.AgentStatus);
 
           if (responsedata.statusCode == 500)
             return res
